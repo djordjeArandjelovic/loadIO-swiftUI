@@ -61,7 +61,9 @@ struct LoadsView: View {
             }
         }
     }
-    
+}
+
+private extension LoadsView {
     func fetchAllLoads() {
         NetworkService.shared.fetchAllLoads()
             .sink(receiveCompletion: { completion in
