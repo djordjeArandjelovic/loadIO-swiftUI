@@ -24,7 +24,7 @@ struct mobile_load_ioApp: App {
             } else {
                 SplashScreenView()
                     .onAppear {
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
                             withAnimation {
                                 isActive = true
                             }
@@ -34,23 +34,3 @@ struct mobile_load_ioApp: App {
         }
     }
 }
-
-
-//WindowGroup {
-//    if isActive {
-//        if isUserLoggedIn{
-//            ContentView()
-//        } else {
-//            LoginView(isUserLoggedIn: $isUserLoggedIn)
-//        }
-//    } else {
-//        SplashScreenView()
-//            .onAppear {
-//                DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-//                    withAnimation {
-//                        isActive = true
-//                    }
-//                }
-//            }
-//    }
-//}

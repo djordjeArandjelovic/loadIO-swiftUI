@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		235092812C2D6A8800C34190 /* ImagePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235092802C2D6A8800C34190 /* ImagePickerView.swift */; };
+		2374894B2C31837C0051560A /* DashboardCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2374894A2C31837C0051560A /* DashboardCardView.swift */; };
+		2374894D2C32B64A0051560A /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2374894C2C32B64A0051560A /* MapView.swift */; };
+		237489502C32E7F90051560A /* MapSearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2374894F2C32E7F90051560A /* MapSearchBarView.swift */; };
+		237489522C32F61F0051560A /* TokenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237489512C32F61F0051560A /* TokenManager.swift */; };
 		23B3DE252C29A7D00036F4C5 /* mobile_load_ioApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B3DE242C29A7D00036F4C5 /* mobile_load_ioApp.swift */; };
 		23B3DE272C29A7D00036F4C5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B3DE262C29A7D00036F4C5 /* ContentView.swift */; };
 		23B3DE2C2C29A7D10036F4C5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 23B3DE2B2C29A7D10036F4C5 /* Preview Assets.xcassets */; };
@@ -29,6 +33,10 @@
 /* Begin PBXFileReference section */
 		235092802C2D6A8800C34190 /* ImagePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerView.swift; sourceTree = "<group>"; };
 		235092862C2DA59600C34190 /* mobile-load-io-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "mobile-load-io-Info.plist"; sourceTree = SOURCE_ROOT; };
+		2374894A2C31837C0051560A /* DashboardCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardCardView.swift; sourceTree = "<group>"; };
+		2374894C2C32B64A0051560A /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		2374894F2C32E7F90051560A /* MapSearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapSearchBarView.swift; sourceTree = "<group>"; };
+		237489512C32F61F0051560A /* TokenManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenManager.swift; sourceTree = "<group>"; };
 		23B3DE212C29A7D00036F4C5 /* mobile-load.io.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "mobile-load.io.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		23B3DE242C29A7D00036F4C5 /* mobile_load_ioApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mobile_load_ioApp.swift; sourceTree = "<group>"; };
 		23B3DE262C29A7D00036F4C5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -65,6 +73,22 @@
 				235092802C2D6A8800C34190 /* ImagePickerView.swift */,
 			);
 			path = LoadsServiceClasses;
+			sourceTree = "<group>";
+		};
+		237489492C3183520051560A /* DashboardComponents */ = {
+			isa = PBXGroup;
+			children = (
+				2374894A2C31837C0051560A /* DashboardCardView.swift */,
+			);
+			path = DashboardComponents;
+			sourceTree = "<group>";
+		};
+		2374894E2C32E7E10051560A /* MapComponents */ = {
+			isa = PBXGroup;
+			children = (
+				2374894F2C32E7F90051560A /* MapSearchBarView.swift */,
+			);
+			path = MapComponents;
 			sourceTree = "<group>";
 		};
 		23B3DE182C29A7D00036F4C5 = {
@@ -142,7 +166,10 @@
 				23B3DE442C29BE020036F4C5 /* SingleLoadView.swift */,
 				2350927B2C2D68F900C34190 /* LoadsServiceClasses */,
 				23B3DE362C29A8460036F4C5 /* DashboardView.swift */,
+				237489492C3183520051560A /* DashboardComponents */,
 				23B3DE3B2C29A8630036F4C5 /* SettingsView.swift */,
+				2374894C2C32B64A0051560A /* MapView.swift */,
+				2374894E2C32E7E10051560A /* MapComponents */,
 			);
 			path = Tabs;
 			sourceTree = "<group>";
@@ -152,6 +179,7 @@
 			children = (
 				23B3DE492C2C10EF0036F4C5 /* APIEndpoints.swift */,
 				23B3DE4B2C2C116A0036F4C5 /* NetworkService.swift */,
+				237489512C32F61F0051560A /* TokenManager.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -241,14 +269,18 @@
 				23B3DE3C2C29A8630036F4C5 /* SettingsView.swift in Sources */,
 				23B3DE392C29A8510036F4C5 /* LoadsView.swift in Sources */,
 				23B3DE4A2C2C10EF0036F4C5 /* APIEndpoints.swift in Sources */,
+				237489522C32F61F0051560A /* TokenManager.swift in Sources */,
 				23B3DE532C2C5C210036F4C5 /* SplashScreenView.swift in Sources */,
 				23B3DE452C29BE020036F4C5 /* SingleLoadView.swift in Sources */,
+				2374894D2C32B64A0051560A /* MapView.swift in Sources */,
 				23B3DE272C29A7D00036F4C5 /* ContentView.swift in Sources */,
 				23B3DE372C29A8460036F4C5 /* DashboardView.swift in Sources */,
 				23B3DE472C2AE6930036F4C5 /* UserModel.swift in Sources */,
 				235092812C2D6A8800C34190 /* ImagePickerView.swift in Sources */,
 				23B3DE512C2C53450036F4C5 /* StringExtensions.swift in Sources */,
+				237489502C32E7F90051560A /* MapSearchBarView.swift in Sources */,
 				23B3DE252C29A7D00036F4C5 /* mobile_load_ioApp.swift in Sources */,
+				2374894B2C31837C0051560A /* DashboardCardView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -387,12 +419,14 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "mobile-load-io-Info.plist";
 				INFOPLIST_KEY_NSCameraUsageDescription = "We need access to the camera to take photos of BOLs.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We need your permission to be able to show your location.";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "We need access to your photo library to select photos of BOLs.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -419,12 +453,14 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "mobile-load-io-Info.plist";
 				INFOPLIST_KEY_NSCameraUsageDescription = "We need access to the camera to take photos of BOLs.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We need your permission to be able to show your location.";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "We need access to your photo library to select photos of BOLs.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
