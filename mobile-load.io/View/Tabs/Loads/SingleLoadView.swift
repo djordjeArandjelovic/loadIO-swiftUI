@@ -24,18 +24,9 @@ struct SingleLoadView: View {
     
     var body: some View {
         VStack (spacing: 50) {
-            VStack {
-                Text("Load Details")
-                    .font(.largeTitle)
-                Text("Load #: \(singleLoad.loadNumber)")
-                Text("Route: \(singleLoad.route)")
-                if let deliveryDate = singleLoad.deliveryDate?.formattedDate() {
-                    Text("Delivery Date: \(deliveryDate)")
-                } else {
-                    Text("Delivery Date: N/A")
-                }
-            }
-            
+            // MARK: Load Details section
+            LoadDetailsView(singleLoad: $singleLoad)
+
             //MARK: - Selected image preview
             if !selectedImages.isEmpty {
                 VStack {
@@ -68,38 +59,8 @@ struct SingleLoadView: View {
                 }
             }
             
-            VStack {
-                Text("BOL")
-                    .font(.largeTitle)
-                    .padding()
-                Button(action: {
-                    isPhotoLibraryPickerPresented = true
-                }) {
-                    Text("Browse Photos")
-                        .frame(minWidth: 0, maxWidth: 200)
-                        .padding()
-                        .background(Color.indigo)
-                        .foregroundColor(Color.white)
-                        .cornerRadius(10)
-                }
-                .sheet(isPresented: $isPhotoLibraryPickerPresented) {
-                    ImagePickerView(images: $selectedImages, sourceType: .photoLibrary)
-                }
-                Button(action: {
-                    isCameraPickerPresented = true
-                }) {
-                    Text("Take a photo")
-                        .frame(minWidth: 0, maxWidth: 200)
-                        .padding()
-                        .background(Color.indigo)
-                        .foregroundColor(Color.white)
-                        .cornerRadius(10)
-                }
-                .padding()
-                .sheet(isPresented: $isCameraPickerPresented) {
-                    ImagePickerView(images: $selectedImages, sourceType: .camera)
-                }
-            }
+            // MARK: BOL section
+            BOLPhotoActionsView(selectedImages: $selectedImages, isPhotoLibraryPickerPresented: $isPhotoLibraryPickerPresented, isCameraPickerPresented: $isCameraPickerPresented)
         }
         .alert(isPresented: Binding<Bool>(
             get: { uploadSuccess != nil },
@@ -112,9 +73,10 @@ struct SingleLoadView: View {
             }
         }
     }
-    
-    
-    private func uploadImages() {
+}
+
+private extension SingleLoadView {
+    func uploadImages() {
         guard let fileID = singleLoad.fileID,
               let url = URL(string: "https://dev.az.loadio.app/filemanager/PostFile?component_type=3&item_file_id=\(fileID)&file_sub_category=1") else {
             print("Invalid fileID or URL")
@@ -131,30 +93,6 @@ struct SingleLoadView: View {
                 uploadSuccess = true
             })
             .store(in: &cancellables)
-    }
-}
-
-struct FullScreenImageView: View {
-    var image: UIImage
-    var onDismiss: () -> Void
-    
-    var body: some View {
-        VStack {
-            HStack {
-                Button(action: onDismiss) {
-                    Text("Back")
-                }
-                Spacer()
-            }
-            .padding()
-            Spacer()
-            
-            Image(uiImage: image)
-                .resizable()
-                .scaledToFit()
-                .edgesIgnoringSafeArea(.all)
-            Spacer()
-        }
     }
 }
 
