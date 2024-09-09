@@ -83,7 +83,7 @@ private extension SingleLoadView {
             return
         }
         
-        NetworkService.shared.uploadImages(url: url, images: selectedImages)
+        NetworkService.shared.uploadImages(url: url, images: selectedImages, fileName: singleLoad.loadNumber)
             .sink(receiveCompletion: { completion in
                 if case .failure(let error) = completion {
                     print("Error uploading images: \(error)")

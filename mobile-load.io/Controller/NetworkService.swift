@@ -20,9 +20,9 @@ class NetworkService {
         self.token = token
     }
     
-    func createRequest(url: URL, httpMethod: String = "GET") -> URLRequest? {
+    func createRequest(withUrl: URL, httpMethod: String = "GET") -> URLRequest? {
         guard let token = token else { return nil }
-        var request = URLRequest(url: url)
+        var request = URLRequest(url: withUrl)
         request.httpMethod = httpMethod
         request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
         return request
@@ -32,7 +32,7 @@ class NetworkService {
         print("Attempting to fetch data...")
         
         guard let url = URL(string: APIEndpoints.getAllLoadsEndpoint),
-              let request = createRequest(url: url) else {
+              let request = createRequest(withUrl: url) else {
             print("Failed to create request...")
             return Fail(error: URLError(.badURL)).eraseToAnyPublisher()
         }
@@ -46,7 +46,7 @@ class NetworkService {
     
     func fetchLoadDetail(loadID: Int) -> AnyPublisher<SingleLoad, Error> {
         guard let url = URL(string: "\(APIEndpoints.getLoadDetailedEndpoint)\(loadID)"),
-              let request = createRequest(url: url) else {
+              let request = createRequest(withUrl: url) else {
             return Fail(error: URLError(.badURL)).eraseToAnyPublisher()
         }
         
@@ -57,19 +57,19 @@ class NetworkService {
             .eraseToAnyPublisher()
     }
     
-    func uploadImages(url: URL, images: [UIImage]) -> AnyPublisher<Void, Error> {
+    func uploadImages(url: URL, images: [UIImage], fileName: String) -> AnyPublisher<Void, Error> {
         print("Attempting to upload images to URL: \(url)")
         
         var imageDatas: [(Data, String)] = []
         for (index, image) in images.enumerated() {
             if let imageData = image.jpegData(compressionQuality: 0.8) {
-                let filename = "upload\(index).jpg"
+                let filename = "upload\(index)-\(fileName).jpg"
                 imageDatas.append((imageData, filename))
             }
         }
         
         guard !imageDatas.isEmpty,
-              var request = createRequest(url: url, httpMethod: "POST") else {
+              var request = createRequest(withUrl: url, httpMethod: "POST") else {
             print("Failed to create request or convert images to data.")
             return Fail(error: URLError(.badURL)).eraseToAnyPublisher()
         }
@@ -93,7 +93,33 @@ class NetworkService {
             .eraseToAnyPublisher()
     }
     
-    private func createBody(boundary: String, imageDatas: [(Data, String)]) -> Data {
+    func sendCoordinates(latitude: Double, longitude: Double) -> AnyPublisher<Void, Error> {
+        guard let url = URL(string: "httpss://www.postCoordinates.com"), // MARK: replace with actual url
+              var request = createRequest(withUrl: url, httpMethod: "POST") else {
+            return Fail(error: URLError(.badURL)).eraseToAnyPublisher()
+        }
+        
+        let body: [String: Any] = ["latitude": latitude, "longitude": longitude]
+        
+        do {
+            request.httpBody = try JSONSerialization.data(withJSONObject: body, options: [])
+        } catch {
+            print("Error serilizing JSON: \(error)")
+            return Fail(error: error).eraseToAnyPublisher()
+        }
+        
+        return URLSession.shared.dataTaskPublisher(for: request)
+            .tryMap { data, response in
+                guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
+                    throw URLError(.badServerResponse)
+                }
+            }
+            .eraseToAnyPublisher()
+    }
+}
+
+private extension NetworkService {
+    func createBody(boundary: String, imageDatas: [(Data, String)]) -> Data {
         var body = Data()
         
         for (data, filename) in imageDatas {
