@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		232EFBC02C92ED5A00EC5266 /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232EFBBF2C92ED5A00EC5266 /* LoginModel.swift */; };
 		238202052C341CC60024581B /* DashboardCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238201F12C341CC60024581B /* DashboardCardView.swift */; };
 		238202062C341CC60024581B /* DashboardHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238201F22C341CC60024581B /* DashboardHeaderView.swift */; };
 		238202072C341CC60024581B /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238201F42C341CC60024581B /* DashboardView.swift */; };
@@ -27,15 +28,17 @@
 		23B3DE2C2C29A7D10036F4C5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 23B3DE2B2C29A7D10036F4C5 /* Preview Assets.xcassets */; };
 		23B3DE3E2C29B75C0036F4C5 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B3DE3D2C29B75C0036F4C5 /* LoginView.swift */; };
 		23B3DE402C29B8B70036F4C5 /* SingleLoad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B3DE3F2C29B8B70036F4C5 /* SingleLoad.swift */; };
-		23B3DE422C29BCC30036F4C5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 23B3DE412C29BCC30036F4C5 /* Assets.xcassets */; };
 		23B3DE472C2AE6930036F4C5 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B3DE462C2AE6930036F4C5 /* UserModel.swift */; };
 		23B3DE4A2C2C10EF0036F4C5 /* APIEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B3DE492C2C10EF0036F4C5 /* APIEndpoints.swift */; };
 		23B3DE4E2C2C29DE0036F4C5 /* LoadsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B3DE4D2C2C29DD0036F4C5 /* LoadsResponse.swift */; };
 		23B3DE512C2C53450036F4C5 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B3DE502C2C53450036F4C5 /* StringExtensions.swift */; };
 		23B3DE532C2C5C210036F4C5 /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B3DE522C2C5C210036F4C5 /* SplashScreenView.swift */; };
+		23F268F12C903FD8009B3C85 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 23F268F02C903FD8009B3C85 /* Assets.xcassets */; };
+		23F268F62C90410C009B3C85 /* FileFolderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F268F52C90410C009B3C85 /* FileFolderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		232EFBBF2C92ED5A00EC5266 /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
 		235092862C2DA59600C34190 /* mobile-load-io-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "mobile-load-io-Info.plist"; sourceTree = SOURCE_ROOT; };
 		238201F12C341CC60024581B /* DashboardCardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardCardView.swift; sourceTree = "<group>"; };
 		238201F22C341CC60024581B /* DashboardHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardHeaderView.swift; sourceTree = "<group>"; };
@@ -58,12 +61,13 @@
 		23B3DE2B2C29A7D10036F4C5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		23B3DE3D2C29B75C0036F4C5 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		23B3DE3F2C29B8B70036F4C5 /* SingleLoad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleLoad.swift; sourceTree = "<group>"; };
-		23B3DE412C29BCC30036F4C5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = "../../iOS-Swift/Private/LoadIO/LoadIO-Mobile-iOS/LoadIO-Mobile-iOS/Assets.xcassets"; sourceTree = "<group>"; };
 		23B3DE462C2AE6930036F4C5 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		23B3DE492C2C10EF0036F4C5 /* APIEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIEndpoints.swift; sourceTree = "<group>"; };
 		23B3DE4D2C2C29DD0036F4C5 /* LoadsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadsResponse.swift; sourceTree = "<group>"; };
 		23B3DE502C2C53450036F4C5 /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 		23B3DE522C2C5C210036F4C5 /* SplashScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenView.swift; sourceTree = "<group>"; };
+		23F268F02C903FD8009B3C85 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = "mobile-load.io/Assets.xcassets"; sourceTree = SOURCE_ROOT; };
+		23F268F52C90410C009B3C85 /* FileFolderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileFolderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +140,7 @@
 		238202032C341CC60024581B /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				23F268F22C9040C1009B3C85 /* Filer Folder */,
 				238202022C341CC60024581B /* SettingsView.swift */,
 			);
 			path = Settings;
@@ -187,7 +192,7 @@
 				238202142C341CE00024581B /* Controller */,
 				23B3DE4F2C2C53260036F4C5 /* Extensions */,
 				23B3DE482C2C10E60036F4C5 /* Network */,
-				23B3DE412C29BCC30036F4C5 /* Assets.xcassets */,
+				23F268F02C903FD8009B3C85 /* Assets.xcassets */,
 				23B3DE2A2C29A7D10036F4C5 /* Preview Content */,
 			);
 			path = "mobile-load.io";
@@ -218,6 +223,7 @@
 				23B3DE4D2C2C29DD0036F4C5 /* LoadsResponse.swift */,
 				23B3DE3F2C29B8B70036F4C5 /* SingleLoad.swift */,
 				23B3DE462C2AE6930036F4C5 /* UserModel.swift */,
+				232EFBBF2C92ED5A00EC5266 /* LoginModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -237,6 +243,14 @@
 				2386E2712C35621E004A338C /* CLLocationCoordinate2DExtension.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		23F268F22C9040C1009B3C85 /* Filer Folder */ = {
+			isa = PBXGroup;
+			children = (
+				23F268F52C90410C009B3C85 /* FileFolderView.swift */,
+			);
+			path = "Filer Folder";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -297,8 +311,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				23F268F12C903FD8009B3C85 /* Assets.xcassets in Resources */,
 				23B3DE2C2C29A7D10036F4C5 /* Preview Assets.xcassets in Resources */,
-				23B3DE422C29BCC30036F4C5 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -315,6 +329,7 @@
 				2382020E2C341CC60024581B /* MapSearchBarView.swift in Sources */,
 				238202162C341CE00024581B /* NetworkService.swift in Sources */,
 				23B3DE402C29B8B70036F4C5 /* SingleLoad.swift in Sources */,
+				23F268F62C90410C009B3C85 /* FileFolderView.swift in Sources */,
 				23B3DE3E2C29B75C0036F4C5 /* LoginView.swift in Sources */,
 				238202062C341CC60024581B /* DashboardHeaderView.swift in Sources */,
 				2382020F2C341CC60024581B /* MapView.swift in Sources */,
@@ -329,6 +344,7 @@
 				23B3DE512C2C53450036F4C5 /* StringExtensions.swift in Sources */,
 				238202172C341CE00024581B /* TokenManager.swift in Sources */,
 				2386E2722C35621E004A338C /* CLLocationCoordinate2DExtension.swift in Sources */,
+				232EFBC02C92ED5A00EC5266 /* LoginModel.swift in Sources */,
 				238202092C341CC60024581B /* FullScreenImageView.swift in Sources */,
 				2382020B2C341CC60024581B /* LoadDetailsView.swift in Sources */,
 				238202082C341CC60024581B /* BOLPhotoActionsView.swift in Sources */,
@@ -466,7 +482,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"mobile-load.io/Preview Content\"";
-				DEVELOPMENT_TEAM = 558Q7J5JAC;
+				DEVELOPMENT_TEAM = BDDP6C7KS5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "mobile-load-io-Info.plist";
@@ -500,7 +516,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"mobile-load.io/Preview Content\"";
-				DEVELOPMENT_TEAM = 558Q7J5JAC;
+				DEVELOPMENT_TEAM = BDDP6C7KS5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "mobile-load-io-Info.plist";

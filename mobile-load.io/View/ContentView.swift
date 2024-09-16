@@ -9,7 +9,6 @@ import SwiftUI
 import Combine
 
 struct ContentView: View {
-    var token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoic3VwcG9ydEBsb2FkaW8uYXBwIiwiQ3VzdG9tZXJJZCI6IjUiLCJFbXBsb3llZUlkIjoiOCIsIlNlY3RvcklkIjoiMTYiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJWaWV3ZXIiLCJzdWIiOiIwNWI2ZTM1Ni04NGY4LTQ1MjEtOGI0OC1jOWQ1MjZiYTU4MGMiLCJleHAiOjE3MjA1NDE3OTUsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6NTAwMCIsImF1ZCI6IlRydWNraW5nVXNlcnMifQ.uup7yb00s9Uc3CxAsSxAKxDaC0zYzPsuK3FAIdeVZUs"
     
     @State var selectedTab = 0
     @State var loads: [SingleLoad] = []
@@ -19,6 +18,10 @@ struct ContentView: View {
     @Binding var isUserLoggedIn : Bool
     
     var body: some View {
+        Image("logoLight")
+            .resizable()
+            .scaledToFit()
+            .frame(width: 100, height: 50)
         Group {
             if isLoading {
                 ProgressView("Loading...")
@@ -56,8 +59,12 @@ struct ContentView: View {
         }
         .onAppear {
             Task {
-                NetworkService.shared.setToken(token)
-                fetchAllLoads()
+                if NetworkService.shared.hasToken {
+                    print("Token found, fetching loads")
+                    fetchAllLoads()
+                } else {
+                    print("No token found, not fetching loads")
+                }
             }
         }
     }

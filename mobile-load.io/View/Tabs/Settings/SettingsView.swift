@@ -15,38 +15,38 @@ struct SettingsView: View {
     var body: some View {
         NavigationStack {
             VStack(alignment: .leading, spacing: 20) {
-                    Image(systemName: "person.circle.fill")
-                        .resizable()
-                        .imageScale(.large)
-                        .frame(width: 100, height: 100)
-                        .background(.indigo)
-                        .clipShape(Circle())
-                        .foregroundStyle(.white)
-                        .padding(.vertical)
-                    
-                    VStack(alignment: .leading, spacing: 6) {
-                        HStack {
-                            Text("Driver name: ")
-                                .foregroundColor(.gray)
-                            Text("\(user.firstName) \(user.lastName)")
-                                .font(.subheadline)
-                                .fontWeight(.bold)
-                        }
-                        
-                        HStack {
-                            Text("Email: ")
-                                .foregroundColor(.gray)
-                            Text(user.email)
-                                .font(.subheadline)
-                        }
-                        
-                        HStack {
-                            Text("Phone number: ")
-                                .foregroundColor(.gray)
-                            Text(user.phoneNumber)
-                                .font(.subheadline)
-                        }
+                Image(systemName: "person.circle.fill")
+                    .resizable()
+                    .imageScale(.large)
+                    .frame(width: 100, height: 100)
+                    .background(.indigo)
+                    .clipShape(Circle())
+                    .foregroundStyle(.white)
+                    .padding(.vertical)
+                
+                VStack(alignment: .leading, spacing: 6) {
+                    HStack {
+                        Text("Driver name: ")
+                            .foregroundColor(.gray)
+                        Text("\(user.firstName) \(user.lastName)")
+                            .font(.subheadline)
+                            .fontWeight(.bold)
                     }
+                    
+                    HStack {
+                        Text("Email: ")
+                            .foregroundColor(.gray)
+                        Text(user.email)
+                            .font(.subheadline)
+                    }
+                    
+                    HStack {
+                        Text("Phone number: ")
+                            .foregroundColor(.gray)
+                        Text(user.phoneNumber)
+                            .font(.subheadline)
+                    }
+                }
                 Spacer()
             }
             .padding()
@@ -57,12 +57,14 @@ struct SettingsView: View {
             // MARK: in case he gets pulled over or for any other reason. (registration, papers, licence...)
             Button(action: {
             }, label: {
-                Text("Files")
-                    .frame(minWidth: 0, maxWidth: 200)
-                    .padding()
-                    .background(Color.indigo)
-                    .foregroundColor(Color.white)
-                    .cornerRadius(10)
+                NavigationLink(destination: FileFolderView()) {
+                    Text("Files")
+                        .frame(minWidth: 0, maxWidth: 200)
+                        .padding()
+                        .background(Color.indigo)
+                        .foregroundColor(Color.white)
+                        .cornerRadius(10)
+                }
             })
             .padding()
             

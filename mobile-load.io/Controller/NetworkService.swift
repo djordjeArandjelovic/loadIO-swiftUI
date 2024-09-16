@@ -20,12 +20,47 @@ class NetworkService {
         self.token = token
     }
     
+    var hasToken: Bool {
+        return token != nil
+    }
+    
     func createRequest(withUrl: URL, httpMethod: String = "GET") -> URLRequest? {
         guard let token = token else { return nil }
         var request = URLRequest(url: withUrl)
         request.httpMethod = httpMethod
         request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        print("Token added to request: \(token)")
         return request
+    }
+    
+    func loginWithUsernameAndPassword(email: String, username: String, password: String) -> AnyPublisher<LoginResponse, Error> {
+        guard let url = URL(string: "https://dev.az.loadio.app/admin/api/Accounts/Login") else {
+            return Fail(error: URLError(.badURL)).eraseToAnyPublisher()
+        }
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        let body: [String: Any] = [
+            "email": email,
+            "username": username,
+            "password": password,
+            "clientURI": "https://dev.loadio.app/"
+        ]
+        
+        do {
+            request.httpBody = try JSONSerialization.data(withJSONObject: body, options: [])
+        } catch {
+            return Fail(error: error).eraseToAnyPublisher()
+        }
+        
+        return URLSession.shared.dataTaskPublisher(for: request)
+            .map(\.data)
+            .decode(type: LoginResponse.self, decoder: JSONDecoder())
+            .receive(on: DispatchQueue.main)
+            .eraseToAnyPublisher()
+        
     }
     
     func fetchAllLoads() -> AnyPublisher<[SingleLoad], Error> {
