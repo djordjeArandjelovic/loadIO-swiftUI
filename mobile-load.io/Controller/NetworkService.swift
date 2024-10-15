@@ -15,6 +15,7 @@ class NetworkService {
     
     private var cancellables = Set<AnyCancellable>()
     private var token: String?
+    private var driverID: Int?
     
     func setToken(_ token: String) {
         self.token = token
@@ -58,9 +59,36 @@ class NetworkService {
         return URLSession.shared.dataTaskPublisher(for: request)
             .map(\.data)
             .decode(type: LoginResponse.self, decoder: JSONDecoder())
+            .handleEvents(receiveOutput: { [weak self] response in
+                if response.isAuthSuccessful {
+                    guard let token = response.token else { return }
+                    self?.setToken(token)
+                    if let employee = response.employee {
+                        self?.driverID = employee.employeeIdForeign
+                        print("Login successful! Driver ID (employeeIdForeign): \(employee.employeeIdForeign)")
+                    } else {
+                        print("Employee information is missing.")
+                    }
+                }
+            })
             .receive(on: DispatchQueue.main)
             .eraseToAnyPublisher()
         
+    }
+    
+    func fetchLoadsByDriver() -> AnyPublisher<[SingleLoad], Error> {
+        guard let driverID = driverID,
+              let url = URL(string: "https://dev.loadio.app/loads/GetLoadsByDriver?driverID=\(driverID)"),
+              let request = createRequest(withUrl: url) else {
+            print("Failed to create a request or driverID is nil.")
+            return Fail(error: URLError(.badURL)).eraseToAnyPublisher()
+        }
+        
+        return URLSession.shared.dataTaskPublisher(for: request)
+            .map(\.data)
+            .decode(type: [SingleLoad].self, decoder: JSONDecoder())
+            .receive(on: DispatchQueue.main)
+            .eraseToAnyPublisher()
     }
     
     func fetchAllLoads() -> AnyPublisher<[SingleLoad], Error> {

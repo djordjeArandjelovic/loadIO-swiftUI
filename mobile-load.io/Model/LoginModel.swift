@@ -14,6 +14,14 @@ struct LoginResponse: Codable {
     let errorMessage: String?
     let is2StepVerificationRequired: Bool
     let theme: Theme?
+    let employee: Employee?
+}
+
+struct Employee: Codable {
+    let employeeId: Int
+    let employeeIdForeign: Int
+    let name: String
+    let lastName: String
 }
 
 struct Theme: Codable {
