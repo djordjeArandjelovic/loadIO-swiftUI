@@ -18,10 +18,10 @@ struct ContentView: View {
     @Binding var isUserLoggedIn : Bool
     
     var body: some View {
-        Image("logoLight")
-            .resizable()
-            .scaledToFit()
-            .frame(width: 100, height: 50)
+//        Image("logoLight")
+//            .resizable()
+//            .scaledToFit()
+//            .frame(width: 100, height: 50)
         Group {
             if isLoading {
                 ProgressView("Loading...")
@@ -61,7 +61,7 @@ struct ContentView: View {
             Task {
                 if NetworkService.shared.hasToken {
                     print("Token found, fetching loads")
-                    fetchAllLoads()
+                    fetchLoadsByDriver()
                 } else {
                     print("No token found, not fetching loads")
                 }
@@ -69,8 +69,8 @@ struct ContentView: View {
         }
     }
     
-    private func fetchAllLoads() {
-        NetworkService.shared.fetchAllLoads()
+    private func fetchLoadsByDriver() {
+        NetworkService.shared.fetchLoadsByDriver()
             .sink(receiveCompletion: { completion in
                 if case .failure(let error) = completion {
                     print("Error fetching loads: \(error)")
