@@ -57,15 +57,15 @@ struct LoadsView: View {
             .navigationBarTitleDisplayMode(.inline)
             .refreshable {
                 print("Refreshed")
-                fetchAllLoads()
+                fetchLoadsByDriver()
             }
         }
     }
 }
 
 private extension LoadsView {
-    func fetchAllLoads() {
-        NetworkService.shared.fetchAllLoads()
+    func fetchLoadsByDriver() {
+        NetworkService.shared.fetchLoadsByDriver()
             .sink(receiveCompletion: { completion in
                 if case .failure(let error) = completion {
                     print("Error fetching loads: \(error)")
