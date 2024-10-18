@@ -14,7 +14,7 @@ struct BOLPhotoActionsView: View {
     
     var body: some View {
         VStack {
-            Text("BOL")
+            Text("Paperwork")
                 .font(.largeTitle)
                 .padding()
             Button(action: {

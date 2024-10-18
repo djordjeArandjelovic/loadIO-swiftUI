@@ -18,7 +18,7 @@ struct LoadsView: View {
         NavigationStack {
             List(loads) { load in
                 NavigationLink(destination: SingleLoadView(singleLoad: .constant(load))) {
-                    VStack(alignment: .leading, spacing: 4) {
+                    VStack(alignment: .leading, spacing: 5) {
                         Text("Load Number: \(load.loadNumber)")
                             .font(.headline)
                         Text("Route: \(load.route)")
@@ -36,7 +36,7 @@ struct LoadsView: View {
                         Text("$\(String(format: "%.2f", load.driverPayAmount))")
                         if let bolNum = load.bolNum {
                             HStack {
-                                Text("BOL Uploaded: ")
+                                Text("Paperwork Uploaded: ")
                                 Image(systemName: bolNum > 0 ? "checkmark" : "xmark")
                                     .foregroundStyle(bolNum > 0 ? .green : .red)
                             }
@@ -44,11 +44,17 @@ struct LoadsView: View {
                             HStack {
                                 Image(systemName: "exclamationmark.triangle")
                                     .foregroundStyle(.yellow)
-                                Text("BOL Information unavailable")
+                                Text("Paperwork Information unavailable")
                                     .foregroundColor(.gray)
                             }
                         }
-                        
+                        HStack {
+                            Image(systemName: "exclamationmark.triangle")
+                                .foregroundStyle(.red)
+                            Text("Attetion required")
+                            Image(systemName: "exclamationmark.triangle")
+                                .foregroundStyle(.red)
+                        }
                     }
                 }
                 .padding([.top, .bottom])

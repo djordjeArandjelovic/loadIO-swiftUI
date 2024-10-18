@@ -88,6 +88,7 @@ class NetworkService {
             .map(\.data)
             .decode(type: [SingleLoad].self, decoder: JSONDecoder())
             .receive(on: DispatchQueue.main)
+            .retry(3)
             .eraseToAnyPublisher()
     }
     
